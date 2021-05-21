@@ -32,8 +32,19 @@ const theme = createMuiTheme({
 });
 
 function App() {
-  axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
+  axios.defaults.baseURL = `${
+    !(
+      process.env.REACT_APP_BACKEND_URL.startsWith("http") ||
+      process.env.REACT_APP_BACKEND_URL.startsWith("https")
+    )
+      ? "http://"
+      : ""
+  }  ${process.env.REACT_APP_BACKEND_URL}`;
+
   axios.defaults.headers.common["Content-Type"] = "application/json";
+
+  console.log(process.env.REACT_APP_BACKEND_URL);
+  console.log(axios.defaults);
 
   const classes = useStyles();
 
