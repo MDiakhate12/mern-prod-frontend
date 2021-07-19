@@ -18,7 +18,7 @@ import Kanban from "./components/Kanban";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: "orange",
+    backgroundColor: "darkorange",
   },
   jumbotron: {
     padding: theme.spacing(1),
