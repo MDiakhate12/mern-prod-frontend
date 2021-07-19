@@ -56,7 +56,7 @@ function App() {
 
         <Paper className={classes.jumbotron}>
           <Typography variant="h3" align="center">
-            Todo List
+            Todo List & Kanban
           </Typography>
         </Paper>
 
