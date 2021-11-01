@@ -45,7 +45,10 @@ export default function TodoList() {
     updateTodo(value);
   };
 
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([
+    {_id: "1", title:"diaf", "status": "done"},
+    {_id: "2", title:"bro", "status": "todo"},
+  ]);
 
   useEffect(() => {
     getTodos();
@@ -55,7 +58,7 @@ export default function TodoList() {
     axios
       .get("/")
       .then((res) => {
-        console.log(res);
+        console.log("TODO", res);
         setTodos(res.data);
       })
       .catch(console.error);

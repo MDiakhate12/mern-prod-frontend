@@ -11,14 +11,14 @@ import {
   Typography,
 } from "@material-ui/core";
 import axios from "axios";
-import TodoList from "./components/TodoList";
 import PropTypes from "prop-types";
 import Kanban from "./components/Kanban";
+import TodoList from "./components/TodoList";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: "darkorange",
+    // backgroundColor: "darkorange",
   },
   jumbotron: {
     padding: theme.spacing(1),
@@ -51,7 +51,8 @@ function App() {
   //     : ""
   // }${process.env.REACT_APP_BACKEND_URL}`;
 
-  axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
+  // axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
+  axios.defaults.baseURL = "http://localhost:4000/";
   axios.defaults.headers.common["Content-Type"] = "application/json";
 
   console.log(process.env.REACT_APP_BACKEND_URL);
@@ -85,11 +86,15 @@ function App() {
             Todo List & Kanban
           </Typography>
         </Paper>
-
-        <TabPanel value={value} index={1}>
-          <Kanban />
-        </TabPanel>
       </Paper>
+
+      <TabPanel value={value} index={0}>
+        <TodoList />
+      </TabPanel>
+
+      <TabPanel value={value} index={1}>
+        <Kanban />
+      </TabPanel>
     </ThemeProvider>
   );
 }
